@@ -72,8 +72,8 @@ if ~isempty(cfg.behav_data)
     idx_21     = find(ismember(events2,{'21'}));
     bad_trial  = find(~behav_data.data(behav_data.data(:,1)==cfg.block,8));
     
-    events2(idx_20(bad_trial)) = {'bad'};
-    events2(idx_21(bad_trial)) = {'bad'};
+    events2(idx_20(bad_trial)) = {'999'};
+    events2(idx_21(bad_trial)) = {'999'};
 else
 end
 %pad with zeros
