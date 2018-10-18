@@ -24,7 +24,7 @@
 % [trl, event] = trig_fun_160_basic(cfg);
 % eval(cell2sym({event.value}))';
 
-function ANA_pipe(rawfile,blocks)
+function ANA_pipe(rawfile,behav_data,blocks)
 
 close all
 
@@ -84,17 +84,19 @@ for block=1:blocks
     cfg                   = [];
     cfg.dataset           = rawfileb;
     cfg.continuous        = 'yes';
-    cfg.trialfun          = 'trig_fun_160_basic';
+    cfg.trialfun          = 'trig_fun_160_ANA';
     cfg.trialdef.prestim  = 1;         % pre-stimulus interval
     cfg.trialdef.poststim = 2;        % post-stimulus interval
     cfg.pdchan            = [];
     cfg.trigchannels      = [165:190];
+    cfg.behav_data        = behav_data;
+    cfg.block             = block;
     
     trialinfo_b = ft_definetrial(cfg);
     
-%     eventx        = eval(cell2sym({trialinfo_b.event.value}))
-%     trialinfo_b.event = trialinfo_b.event(logical(abs(diff(eventx)))); %clean up the trial struct to get rid of incorrect photodetectors
-%     trialinfo_b.trl   = trialinfo_b.trl(logical(abs(diff(eventx))),:);
+    %     eventx        = eval(cell2sym({trialinfo_b.event.value}))
+    %     trialinfo_b.event = trialinfo_b.event(logical(abs(diff(eventx)))); %clean up the trial struct to get rid of incorrect photodetectors
+    %     trialinfo_b.trl   = trialinfo_b.trl(logical(abs(diff(eventx))),:);
     alldata = ft_redefinetrial(trialinfo_b, alldata);
     
     cfg         = [];
