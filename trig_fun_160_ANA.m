@@ -61,7 +61,7 @@ event = event4;
 %code_delay = 0.03; % 30ms if you use a response key
 
 events1 = event;
-events1 = events1(logical([1 abs(diff(eval(cell2sym({events1.value}))))]));%gets rid of repeated triggers - deal with flickering PD
+events1 = events1(logical([1 abs(diff(cell2mat({events1.value})))]));%gets rid of repeated triggers - deal with flickering PD
 events1 = events1(ismember({events1.value},[{'5'} {'18'} {'20'} {'21'} {'26'} {'27'} {'28'} {'29'}])); % and remove triggers we don't need
 events2 = {events1.value};
 
