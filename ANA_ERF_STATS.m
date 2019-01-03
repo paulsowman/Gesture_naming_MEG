@@ -37,6 +37,7 @@ for i=1:length(folders)
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Set-up for ept-toolbox https://github.com/Mensen/ept_TFCE-matlab/tree/master/TFCE
+%https://www.ncbi.nlm.nih.gov/pubmed/23123297
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 newlocs     = fieldtripchan2eeglab_paul(erf.targetmatch.grad); %grad structure in EEGLAB style
@@ -47,6 +48,7 @@ Results = ept_TFCE(ERF_targetmatch,ERF_targetmismatch, newlocs, 'flag_ft',0,'fla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Plot with EEGvis toolbox https://github.com/behinger/eegvis
+%http://www.jneurosci.org/content/35/19/7403
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fgPlot = [];
